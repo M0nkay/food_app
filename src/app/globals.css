@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #15171b;
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+}
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+::placeholder {
+  color: #9a978f;
+}
+
+/* Transizione del tema per-sezione (la firma dell'app). */
+[data-tw] {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease,
+    box-shadow 0.5s ease, fill 0.5s ease;
+}
+[data-noscroll] {
+  scrollbar-width: none;
+}
+[data-noscroll]::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+:focus-visible {
+  outline: 2px solid var(--accent, #c8623b);
+  outline-offset: 2px;
+}
+
+@keyframes cuFade {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes cuBlink {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tw] {
+    transition: none;
+  }
+  [data-anim] {
+    animation: none !important;
+  }
+}
